@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taruna Karya Kampung Ciperang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'forest-green': '#2D5A27',
+                        'leaf-green': '#4F7942',
+                        'ocean-blue': '#1E40AF',
+                        'sky-blue': '#3B82F6',
+                        'mint-green': '#10B981',
+                        'light-green': '#D1FAE5',
+                        'light-blue': '#DBEAFE',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #DBEAFE 0%, #D1FAE5 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .modal {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                <img class="h-10 w-10 mr-3" src="/img/Logo.jpeg" alt="Logo Taruna Karya">
+                <span class="text-xl font-bold text-forest-green">Taruna Karya</span>
+            </div>
+
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#beranda" class="text-forest-green hover:text-mint-green px-3 py-2 text-sm font-medium transition-colors">Beranda</a>
+                        <a href="#tentang" class="text-forest-green hover:text-mint-green px-3 py-2 text-sm font-medium transition-colors">Tentang Kami</a>
+                        <a href="#kegiatan" class="text-forest-green hover:text-mint-green px-3 py-2 text-sm font-medium transition-colors">Kegiatan</a>
+                        <a href="#artikel" class="text-forest-green hover:text-mint-green px-3 py-2 text-sm font-medium transition-colors">Artikel</a>
+                        <a href="#galeri" class="text-forest-green hover:text-mint-green px-3 py-2 text-sm font-medium transition-colors">Galeri</a>
+                        <a href="#kontak" class="text-forest-green hover:text-mint-green px-3 py-2 text-sm font-medium transition-colors">Kontak</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-forest-green hover:text-mint-green p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#beranda" class="text-forest-green hover:text-mint-green block px-3 py-2 text-base font-medium">Beranda</a>
+                <a href="#tentang" class="text-forest-green hover:text-mint-green block px-3 py-2 text-base font-medium">Tentang Kami</a>
+                <a href="#kegiatan" class="text-forest-green hover:text-mint-green block px-3 py-2 text-base font-medium">Kegiatan</a>
+                <a href="#artikel" class="text-forest-green hover:text-mint-green block px-3 py-2 text-base font-medium">Artikel</a>
+                <a href="#galeri" class="text-forest-green hover:text-mint-green block px-3 py-2 text-base font-medium">Galeri</a>
+                <a href="#kontak" class="text-forest-green hover:text-mint-green block px-3 py-2 text-base font-medium">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-bg min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-forest-green mb-6">
+                    Taruna Karya<br>
+                    <span class="text-ocean-blue">Kampung Ciperang</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Bersama Berkarya untuk Ciperang yang Lebih Baik
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#kegiatan" class="bg-mint-green hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                        Lihat Kegiatan
+                    </a>
+                    <a href="#kontak" class="bg-ocean-blue hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="tentang" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-4">Tentang Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Mengenal lebih dekat organisasi kepemudaan Kampung Ciperang</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <img class="w-full max-w-md mx-auto rounded-lg shadow-lg" src="/img/Logo.png" alt="Logo Taruna Karya">
+                    
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-forest-green mb-4">Sejarah Singkat</h3>
+                    <p class="text-gray-600 mb-6">
+                        Taruna Karya Kampung Ciperang didirikan pada tahun 2018 dengan semangat untuk memajukan kehidupan bermasyarakat di Kampung Ciperang. Organisasi ini lahir dari inisiatif para pemuda setempat yang ingin berkontribusi positif bagi lingkungan dan masyarakat.
+                    </p>
+                    <p class="text-gray-600">
+                        Selama bertahun-tahun, kami telah mengadakan berbagai kegiatan sosial, keagamaan, dan kemasyarakatan yang bermanfaat bagi seluruh warga Kampung Ciperang.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Visi Misi -->
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-forest-green mb-6">Visi & Misi</h3>
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold text-ocean-blue mb-3">Visi</h4>
+                        <p class="text-gray-600">Menjadi organisasi kepemudaan yang terdepan dalam membangun karakter dan memberdayakan masyarakat Kampung Ciperang.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-ocean-blue mb-3">Misi</h4>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-mint-green mr-2">•</span>
+                                Mengadakan kegiatan sosial dan kemasyarakatan secara rutin
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-mint-green mr-2">•</span>
+                                Memberdayakan potensi pemuda di Kampung Ciperang
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-mint-green mr-2">•</span>
+                                Melestarikan nilai-nilai gotong royong dan kebersamaan
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-mint-green mr-2">•</span>
+                                Mendukung program pembangunan daerah
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Struktur Organisasi -->
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-forest-green mb-6">Struktur Kepengurusan</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-mint-green pl-4">
+                            <h4 class="font-semibold text-forest-green">Ketua Umum</h4>
+                            <p class="text-gray-600">Tata</p>
+                        </div>
+                        <div class="border-l-4 border-mint-green pl-4">
+                            <h4 class="font-semibold text-forest-green">Wakil Ketua</h4>
+                            <p class="text-gray-600">Aji Jakaria</p>
+                        </div>
+                        <div class="border-l-4 border-mint-green pl-4">
+                            <h4 class="font-semibold text-forest-green">Sekretaris</h4>
+                            <p class="text-gray-600">Diaz Ahmad Septian</p>
+                        </div>
+                        <div class="border-l-4 border-mint-green pl-4">
+                            <h4 class="font-semibold text-forest-green">Bendahara</h4>
+                            <p class="text-gray-600">Tirta Diansyah Septian</p>
+                        </div>
+                        <div class="border-l-4 border-mint-green pl-4">
+                            <h4 class="font-semibold text-forest-green">Koordinator Kegiatan</h4>
+                            <p class="text-gray-600">Dika Pratama</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kegiatan -->
+    <section id="kegiatan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-4">Kegiatan Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Berbagai aktivitas positif yang rutin kami adakan untuk kemajuan bersama</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Kerja Bakti -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                    <img src="/public/img/kerja bakti.jpeg" alt="Kerja Bakti" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-mint-green p-2 rounded-lg mr-3">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-5 5-5-5m0-6l5-5 5 5"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-forest-green">Kerja Bakti</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Kegiatan gotong royong membersihkan lingkungan kampung ciperang yang diadakan setiap hari Minggu pertama setiap bulan.</p>
+                        <div class="text-sm text-mint-green font-semibold">Setiap Minggu • 07:00 WIB</div>
+                    </div>
+                </div>
+
+                <!-- Pengajian -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                    <img src="/public/img/img-7.jpeg" alt="Pengajian" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-ocean-blue p-2 rounded-lg mr-3">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-forest-green">Pengajian Rutin</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Kajian keagamaan dan siraman rohani yang diadakan rutin setiap malam selasa dan Jumat untuk warga kampung ciperang.</p>
+                        <div class="text-sm text-ocean-blue font-semibold">Setiap malam selasa dan Jumat • 18:30 WIB</div>
+                    </div>
+                </div>
+
+                <!-- Agustusan -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                    <img src="/public/img/agustusan.jpeg" alt="Agustusan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-500 p-2 rounded-lg mr-3">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-forest-green">Perayaan Agustusan</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Rangkaian lomba dan perayaan kemerdekaan Indonesia dengan berbagai perlombaan tradisional yang meriah.</p>
+                        <div class="text-sm text-red-500 font-semibold">Agustus • 17 Agustus</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artikel -->
+    <section id="artikel" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-4">Artikel & Dokumentasi</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Laporan kegiatan dan dokumentasi perjalanan organisasi</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 p-3 rounded-lg mr-4">
+                            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-forest-green">📄 Pengajian</h3>
+                            <p class="text-sm text-gray-500">15 Januari 2025</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Laporan lengkap kegiatan pengajian yang dihadiri ratusan jamaah.</p>
+                    <a href="/artikel/data-pelaku-usaha (1).pdf" class="text-ocean-blue hover:text-blue-700 font-semibold text-sm flex items-center">
+                        Lihat PDF 
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-lg mr-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-forest-green">📄 Kerja Bakti Rw 01</h3>
+                            <p class="text-sm text-gray-500">Setiap Hari Minggu</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Dokumentasi kegiatan kerja bakti membersihkan selokan dan area umum di Rw 01 Kampung Ciperang.</p>
+                    <a href="/artikel/kerja-bakti-rt03.pdf" class="text-ocean-blue hover:text-blue-700 font-semibold text-sm flex items-center">
+                        Lihat PDF 
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-forest-green">📄 Laporan Kegiatan 2024</h3>
+                            <p class="text-sm text-gray-500">31 Desember 2024</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Rangkuman lengkap seluruh kegiatan organisasi sepanjang tahun 2024 dan pencapaiannya.</p>
+                    <a href="/artikel/laporan-kegiatan-2024.pdf" class="text-ocean-blue hover:text-blue-700 font-semibold text-sm flex items-center">
+                        Lihat PDF 
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri -->
+    <section id="galeri" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-4">Galeri Kegiatan</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Momen-momen berharga dari berbagai kegiatan organisasi</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gallery-item cursor-pointer" onclick="openModal('/public/img/img-1.jpg')">
+                    <img src="/public/img/img-1.jpg" alt="Kerja Bakti" class="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow card-hover">
+                </div>
+                <div class="gallery-item cursor-pointer" onclick="openModal('/public/img/img-2.jpg')">
+                    <img src="/public/img/img-2.jpg" alt="Pengajian" class="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow card-hover">
+                </div>
+                <div class="gallery-item cursor-pointer" onclick="openModal('/public/img/img-3.jpg')">
+                    <img src="/public/img/img-3.jpg" alt="Agustusan" class="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow card-hover">
+                </div>
+                <div class="gallery-item cursor-pointer" onclick="openModal('/public/img/img-4.jpeg')">
+                    <img src="/public/img/img-4.jpeg" alt="Rapat Koordinasi" class="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow card-hover">
+                </div>
+                <div class="gallery-item cursor-pointer" onclick="openModal('/public/img/img-5.jpeg')">
+                    <img src="/public/img/img-5.jpeg" alt="Gotong Royong" class="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow card-hover">
+                </div>
+                <div class="gallery-item cursor-pointer" onclick="openModal('/public/img/img-6.jpeg')">
+                    <img src="/public/img/img-6.jpeg" alt="Acara Keagamaan" class="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow card-hover">
+                </div>
+                <div class="gallery-item cursor-pointer" onclick="openModal('/public/img/img-7.jpeg')">
+                    <img src="/public/img/img-7.jpeg" alt="Diskusi Warga" class="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow card-hover">
+                </div>
+                <div class="gallery-item cursor-pointer" onclick="openModal('/public/img/img-8.jpeg')">
+                    <img src="/public/img/img-8.jpeg" alt="Kegiatan Sosial" class="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow card-hover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal untuk Galeri -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 modal hidden z-50 flex items-center justify-center p-4">
+        <div class="relative max-w-4xl max-h-full">
+            <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-gray-300 text-2xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center">
+                ×
+            </button>
+        </div>
+    </div>
+
+    <!-- Kontak -->
+    <section id="kontak" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-4">Hubungi Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Informasi Kontak -->
+                <div>
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-forest-green mb-6">Informasi Kontak</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-mint-green p-3 rounded-lg mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-forest-green mb-1">Alamat</h4>
+                                    <p class="text-gray-600">Kampung Ciperang RW 01<br>Desa Sukarame, Kecamatan Leles<br>Kabupaten Garut, Jawa Barat 44152</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-ocean-blue p-3 rounded-lg mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-forest-green mb-1">WhatsApp</h4>
+                                    <a href="https://wa.me/6282117617962" class="text-ocean-blue hover:text-blue-700 transition-colors">+62 821-1761-7962</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-red-500 p-3 rounded-lg mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-forest-green mb-1">Email</h4>
+                                    <a href="mailto:info@tarunakarya-ciperang.id" class="text-ocean-blue hover:text-blue-700 transition-colors">info@tarunakarya-ciperang.id</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-pink-500 p-3 rounded-lg mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.745.095.117.109.22.081.339-.09.364-.294 1.197-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.738-1.378l-.742 2.838c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.018.001z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-forest-green mb-1">Instagram</h4>
+                                    <a href="https://instagram.com/tarunakarya_ciperang" class="text-ocean-blue hover:text-blue-700 transition-colors">@tarunakarya_ciperang</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peta -->
+                <div>
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-forest-green mb-6">Lokasi Kami</h3>
+                        <div class="aspect-w-16 aspect-h-12 mb-4">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!4v1754403937358!6m8!1m7!1syKMv7lUQNwjpFeU_8yTecA!2m2!1d-7.115102094990708!2d107.9243737356715!3f142.27709189221915!4f-8.711910339030439!5f0.7820865974627469" 
+                                width="100%" 
+                                height="300" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                class="rounded-lg">
+                            </iframe>
+                        </div>
+                        <a href="https://maps.app.goo.gl/Skz49nLEGTLwUKwJ7" target="_blank" class="inline-flex items-center text-ocean-blue hover:text-blue-700 transition-colors font-semibold">
+                            Buka di Google Maps
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-forest-green text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-4 mb-4">
+                <div class="bg-white p-1 rounded-full shadow-md">
+                    <img src="/img/Logo.png" alt="Logo" class="h-14 w-14 object-contain" />
+                </div>
+                <span class="text-xl font-bold text-white">Taruna Karya Kampung Ciperang</span>
+                </div>
+
+                    <p class="text-green-100 mb-4">Bersama membangun Kampung Ciperang yang lebih baik melalui berbagai kegiatan sosial dan kemasyarakatan.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/6281234567890" class="text-green-100 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:info@tarunakarya-ciperang.id" class="text-green-100 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/tarunakarya_ciperang" class="text-green-100 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.745.095.117.109.22.081.339-.09.364-.294 1.197-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.738-1.378l-.742 2.838c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.018.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Navigasi</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#beranda" class="text-green-100 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="#tentang" class="text-green-100 hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="#kegiatan" class="text-green-100 hover:text-white transition-colors">Kegiatan</a></li>
+                        <li><a href="#artikel" class="text-green-100 hover:text-white transition-colors">Artikel</a></li>
+                        <li><a href="#galeri" class="text-green-100 hover:text-white transition-colors">Galeri</a></li>
+                        <li><a href="#kontak" class="text-green-100 hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kegiatan</h3>
+                    <ul class="space-y-2">
+                        <li class="text-green-100">Kerja Bakti Rutin</li>
+                        <li class="text-green-100">Pengajian Rutin</li>
+                        <li class="text-green-100">Perayaan Agustusan</li>
+                        <li class="text-green-100">Rapat Koordinasi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-green-600 mt-8 pt-8 text-center">
+                <p class="text-green-100">&copy; 2025 Taruna Karya Kampung Ciperang. Semua hak cipta dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Modal functions for gallery
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the image
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow-xl');
+            } else {
+                navbar.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+</body>
+</html>
