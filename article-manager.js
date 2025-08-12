@@ -6,11 +6,10 @@ class ArticleManager {
         this.renderArticles();
     }
 
-    // Load articles (fallback to localStorage)
+    // Load articles from localStorage
     loadArticles() {
         const stored = localStorage.getItem('articles');
-        this.articles = stored ? JSON.parse(stored) : this.getDefaultArticles();
-        this.renderArticles();
+        return stored ? JSON.parse(stored) : this.getDefaultArticles();
     }
 
     // Save articles to localStorage
@@ -54,7 +53,10 @@ class ArticleManager {
         document.getElementById('closeModal').addEventListener('click', () => this.closeModal());
         document.getElementById('cancelBtn').addEventListener('click', () => this.closeModal());
         document.getElementById('articleForm').addEventListener('submit', (e) => this.handleSubmit(e));
-        document.getElementById('image').addEventListener('change', (e) => this.previewImage(e));
+        const imageInput = document.getElementById('image');
+        if (imageInput) {
+            imageInput.addEventListener('change', (e) => this.previewImage(e));
+        }
         
         // Close modal when clicking outside
         document.getElementById('articleModal').addEventListener('click', (e) => {
@@ -204,6 +206,7 @@ class ArticleManager {
     // Render articles list
     renderArticles() {
         const container = document.getElementById('articlesContainer');
+        if (!container) return;
         
         if (this.articles.length === 0) {
             container.innerHTML = `
