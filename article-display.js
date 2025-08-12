@@ -1,21 +1,13 @@
 class ArticleDisplay {
     constructor() {
-        this.articles = [];
-        this.apiUrl = '/api/articles';
-        this.loadArticles();
+        this.articles = this.loadArticles();
+        this.renderArticles();
     }
 
-    // Load articles from API
-    async loadArticles() {
-        try {
-            const response = await fetch(this.apiUrl);
-            this.articles = await response.json();
-            this.renderArticles();
-        } catch (error) {
-            console.error('Error loading articles:', error);
-            this.articles = this.getDefaultArticles();
-            this.renderArticles();
-        }
+    // Load articles from localStorage
+    loadArticles() {
+        const stored = localStorage.getItem('articles');
+        return stored ? JSON.parse(stored) : this.getDefaultArticles();
     }
 
     // Get default articles fallback
