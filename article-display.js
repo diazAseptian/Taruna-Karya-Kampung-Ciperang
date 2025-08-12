@@ -1,13 +1,21 @@
 class ArticleDisplay {
     constructor() {
-        this.articles = this.loadArticles();
-        this.renderArticles();
+        this.articles = [];
+        this.loadArticles();
     }
 
-    // Load articles from localStorage
-    loadArticles() {
-        const stored = localStorage.getItem('articles');
-        return stored ? JSON.parse(stored) : this.getDefaultArticles();
+    // Load articles from Supabase
+    async loadArticles() {
+        try {
+            const data = await supabase.select('articles');
+            this.articles = data.length > 0 ? data : this.getDefaultArticles();
+            this.renderArticles();
+        } catch (error) {
+            console.error('Error loading articles:', error);
+            const stored = localStorage.getItem('articles');
+            this.articles = stored ? JSON.parse(stored) : this.getDefaultArticles();
+            this.renderArticles();
+        }
     }
 
     // Get default articles fallback

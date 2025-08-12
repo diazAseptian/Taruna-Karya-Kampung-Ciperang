@@ -1,20 +1,23 @@
 class ArticleManager {
     constructor() {
-        this.articles = this.loadArticles();
+        this.articles = [];
         this.currentEditId = null;
         this.initializeEventListeners();
-        this.renderArticles();
+        this.loadArticles();
     }
 
-    // Load articles from localStorage
-    loadArticles() {
-        const stored = localStorage.getItem('articles');
-        return stored ? JSON.parse(stored) : this.getDefaultArticles();
-    }
-
-    // Save articles to localStorage
-    saveArticles() {
-        localStorage.setItem('articles', JSON.stringify(this.articles));
+    // Load articles from Supabase
+    async loadArticles() {
+        try {
+            const data = await supabase.select('articles');
+            this.articles = data.length > 0 ? data : this.getDefaultArticles();
+            this.renderArticles();
+        } catch (error) {
+            console.error('Error loading articles:', error);
+            const stored = localStorage.getItem('articles');
+            this.articles = stored ? JSON.parse(stored) : this.getDefaultArticles();
+            this.renderArticles();
+        }
     }
 
     // Default articles
@@ -150,39 +153,58 @@ class ArticleManager {
     }
 
     // Save article helper
-    saveArticle(formData) {
+    async saveArticle(formData) {
         if (this.currentEditId) {
-            this.updateArticle(this.currentEditId, formData);
+            await this.updateArticle(this.currentEditId, formData);
         } else {
-            this.createArticle(formData);
+            await this.createArticle(formData);
         }
         this.closeModal();
-        this.renderArticles();
     }
 
     // Create new article
-    createArticle(data) {
-        const newId = Math.max(...this.articles.map(a => a.id), 0) + 1;
-        const newArticle = { id: newId, ...data };
-        this.articles.unshift(newArticle);
-        this.saveArticles();
+    async createArticle(data) {
+        try {
+            await supabase.insert('articles', data);
+            await this.loadArticles();
+        } catch (error) {
+            console.error('Error creating article:', error);
+            const newId = Math.max(...this.articles.map(a => a.id), 0) + 1;
+            const newArticle = { id: newId, ...data };
+            this.articles.unshift(newArticle);
+            localStorage.setItem('articles', JSON.stringify(this.articles));
+            this.renderArticles();
+        }
     }
 
     // Update existing article
-    updateArticle(id, data) {
-        const index = this.articles.findIndex(a => a.id === id);
-        if (index !== -1) {
-            this.articles[index] = { id, ...data };
-            this.saveArticles();
+    async updateArticle(id, data) {
+        try {
+            await supabase.update('articles', id, data);
+            await this.loadArticles();
+        } catch (error) {
+            console.error('Error updating article:', error);
+            const index = this.articles.findIndex(a => a.id === id);
+            if (index !== -1) {
+                this.articles[index] = { id, ...data };
+                localStorage.setItem('articles', JSON.stringify(this.articles));
+                this.renderArticles();
+            }
         }
     }
 
     // Delete article
-    deleteArticle(id) {
+    async deleteArticle(id) {
         if (confirm('Apakah Anda yakin ingin menghapus artikel ini?')) {
-            this.articles = this.articles.filter(a => a.id !== id);
-            this.saveArticles();
-            this.renderArticles();
+            try {
+                await supabase.delete('articles', id);
+                await this.loadArticles();
+            } catch (error) {
+                console.error('Error deleting article:', error);
+                this.articles = this.articles.filter(a => a.id !== id);
+                localStorage.setItem('articles', JSON.stringify(this.articles));
+                this.renderArticles();
+            }
         }
     }
 
