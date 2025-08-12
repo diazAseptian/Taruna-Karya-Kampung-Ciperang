@@ -1,17 +1,25 @@
 class ArticleDisplay {
     constructor() {
-        this.articles = this.loadArticles();
-        this.renderArticles();
+        this.articles = [];
+        this.apiUrl = '/api/articles';
+        this.loadArticles();
     }
 
-    // Load articles from localStorage
-    loadArticles() {
-        const stored = localStorage.getItem('articles');
-        if (stored) {
-            return JSON.parse(stored);
+    // Load articles from API
+    async loadArticles() {
+        try {
+            const response = await fetch(this.apiUrl);
+            this.articles = await response.json();
+            this.renderArticles();
+        } catch (error) {
+            console.error('Error loading articles:', error);
+            this.articles = this.getDefaultArticles();
+            this.renderArticles();
         }
-        
-        // Default articles if none exist
+    }
+
+    // Get default articles fallback
+    getDefaultArticles() {
         return [
             {
                 id: 1,

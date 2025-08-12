@@ -1,20 +1,38 @@
 class ArticleManager {
     constructor() {
-        this.articles = this.loadArticles();
+        this.articles = [];
         this.currentEditId = null;
+        this.apiUrl = '/api/articles';
         this.initializeEventListeners();
-        this.renderArticles();
+        this.loadArticles();
     }
 
-    // Load articles from localStorage
-    loadArticles() {
-        const stored = localStorage.getItem('articles');
-        return stored ? JSON.parse(stored) : this.getDefaultArticles();
+    // Load articles from API
+    async loadArticles() {
+        try {
+            const response = await fetch(this.apiUrl);
+            this.articles = await response.json();
+            this.renderArticles();
+        } catch (error) {
+            console.error('Error loading articles:', error);
+            this.articles = this.getDefaultArticles();
+            this.renderArticles();
+        }
     }
 
-    // Save articles to localStorage
-    saveArticles() {
-        localStorage.setItem('articles', JSON.stringify(this.articles));
+    // Save article to API
+    async saveArticleToAPI(article, method = 'POST') {
+        try {
+            const response = await fetch(this.apiUrl, {
+                method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(article)
+            });
+            return await response.json();
+        } catch (error) {
+            console.error('Error saving article:', error);
+            throw error;
+        }
     }
 
     // Default articles
@@ -147,39 +165,44 @@ class ArticleManager {
     }
 
     // Save article helper
-    saveArticle(formData) {
+    async saveArticle(formData) {
         if (this.currentEditId) {
-            this.updateArticle(this.currentEditId, formData);
+            await this.updateArticle(this.currentEditId, formData);
         } else {
-            this.createArticle(formData);
+            await this.createArticle(formData);
         }
         this.closeModal();
-        this.renderArticles();
     }
 
     // Create new article
-    createArticle(data) {
-        const newId = Math.max(...this.articles.map(a => a.id), 0) + 1;
-        const newArticle = { id: newId, ...data };
-        this.articles.unshift(newArticle);
-        this.saveArticles();
+    async createArticle(data) {
+        try {
+            await this.saveArticleToAPI(data, 'POST');
+            await this.loadArticles();
+        } catch (error) {
+            alert('Error creating article');
+        }
     }
 
     // Update existing article
-    updateArticle(id, data) {
-        const index = this.articles.findIndex(a => a.id === id);
-        if (index !== -1) {
-            this.articles[index] = { id, ...data };
-            this.saveArticles();
+    async updateArticle(id, data) {
+        try {
+            await this.saveArticleToAPI({ id, ...data }, 'PUT');
+            await this.loadArticles();
+        } catch (error) {
+            alert('Error updating article');
         }
     }
 
     // Delete article
-    deleteArticle(id) {
+    async deleteArticle(id) {
         if (confirm('Apakah Anda yakin ingin menghapus artikel ini?')) {
-            this.articles = this.articles.filter(a => a.id !== id);
-            this.saveArticles();
-            this.renderArticles();
+            try {
+                await fetch(`${this.apiUrl}?id=${id}`, { method: 'DELETE' });
+                await this.loadArticles();
+            } catch (error) {
+                alert('Error deleting article');
+            }
         }
     }
 
