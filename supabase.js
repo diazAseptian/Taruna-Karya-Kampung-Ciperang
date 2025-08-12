@@ -5,6 +5,16 @@ class SupabaseClient {
     constructor() {
         this.url = SUPABASE_URL;
         this.key = SUPABASE_ANON_KEY;
+        this.initializeTable();
+    }
+
+    async initializeTable() {
+        try {
+            // Check if table exists by trying to select from it
+            await this.select('articles', '*', '?limit=1');
+        } catch (error) {
+            console.log('Table might not exist, will use localStorage fallback');
+        }
     }
 
     async request(endpoint, options = {}) {
@@ -29,8 +39,8 @@ class SupabaseClient {
         return response.json();
     }
 
-    async select(table, columns = '*') {
-        return this.request(`${table}?select=${columns}`);
+    async select(table, columns = '*', params = '') {
+        return this.request(`${table}?select=${columns}${params}`);
     }
 
     async insert(table, data) {
