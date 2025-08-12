@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Kelola Artikel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'forest-green': '#2D5A27',
+                        'leaf-green': '#4F7942',
+                        'ocean-blue': '#1E40AF',
+                        'sky-blue': '#3B82F6',
+                        'mint-green': '#10B981',
+                        'light-green': '#D1FAE5',
+                        'light-blue': '#DBEAFE',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-forest-green shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img class="h-10 w-10 mr-3" src="/public/img/Logo.png" alt="Logo">
+                    <span class="text-xl font-bold text-white">Admin Panel</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-white hover:text-mint-green transition-colors">
+                        Kembali ke Website
+                    </a>
+                    <button onclick="authManager.logout()" class="text-white hover:text-mint-green transition-colors">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-forest-green mb-4">Kelola Artikel</h1>
+            <button id="addArticleBtn" class="bg-mint-green hover:bg-green-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+                Tambah Artikel Baru
+            </button>
+        </div>
+
+        <!-- Form Modal -->
+        <div id="articleModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 id="modalTitle" class="text-2xl font-bold text-forest-green">Tambah Artikel</h2>
+                        <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <form id="articleForm">
+                        <input type="hidden" id="articleId">
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Judul Artikel</label>
+                            <input type="text" id="title" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-green">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                            <input type="date" id="date" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-green">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Kategori</label>
+                            <select id="category" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-green">
+                                <option value="">Pilih Kategori</option>
+                                <option value="kegiatan">Kegiatan</option>
+                                <option value="pengumuman">Pengumuman</option>
+                                <option value="laporan">Laporan</option>
+                                <option value="berita">Berita</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Singkat</label>
+                            <textarea id="description" required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-green"></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Foto Artikel</label>
+                            <input type="file" id="image" accept="image/*" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-green">
+                            <div id="imagePreview" class="mt-2 hidden">
+                                <img id="previewImg" src="" alt="Preview" class="w-32 h-32 object-cover rounded-lg">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Konten Artikel</label>
+                            <textarea id="content" required rows="8" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-green"></textarea>
+                        </div>
+                        
+                        <div class="flex justify-end space-x-4">
+                            <button type="button" id="cancelBtn" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">
+                                Batal
+                            </button>
+                            <button type="submit" class="px-6 py-2 bg-mint-green text-white rounded-lg hover:bg-green-600 transition-colors">
+                                Simpan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles List -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h3 class="text-lg font-semibold text-forest-green">Daftar Artikel</h3>
+            </div>
+            <div id="articlesContainer" class="divide-y divide-gray-200">
+                <!-- Articles will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="article-manager.js"></script>
+</body>
+</html>

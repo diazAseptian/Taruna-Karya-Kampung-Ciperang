@@ -244,62 +244,11 @@
                         </div>
                     </div>
                     
-                    <div class="w-full pt-12">
-                        <h4 class="text-2xl font-bold text-forest-green">Anggota</h4>
-                        <div class="w-full h-1 bg-gray-300 rounded max-w-xs mx-auto mt-2 mb-8"></div>
-                        
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-8 justify-items-center">
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 1" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Rudi</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 2" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Siti</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 3" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Bambang</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 4" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Dewi</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 5" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Joko</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 6" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Lina</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 7" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Agus</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 8" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Maya</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 9" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Heri</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                            <div class="text-center p-2 card-hover w-full">
-                                <img src="https://placehold.co/400x400/D1FAE5/2D5A27?text=Foto" alt="Foto Anggota 10" class="mx-auto rounded-full w-28 h-28 object-cover mb-4 shadow-lg border-4 border-white">
-                                <h4 class="font-bold text-forest-green text-base">Rina</h4>
-                                <p class="text-ocean-blue font-medium text-sm">Anggota</p>
-                            </div>
-                        </div>
+                    <div class="w-full pt-12 text-center">
+                        <h4 class="text-2xl font-bold text-forest-green mb-4">Anggota</h4>
+                        <button onclick="openMembersModal()" class="bg-mint-green hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                            Lihat Daftar Anggota
+                        </button>
                     </div>
                 </div>
             </div>
@@ -358,53 +307,147 @@
             <div class="text-center mb-16 animate-on-scroll">
                 <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-4">Artikel & Dokumentasi</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Laporan kegiatan dan dokumentasi perjalanan organisasi</p>
+                <a href="login.html" class="inline-block mt-4 px-4 py-2 bg-forest-green text-white rounded-lg hover:bg-leaf-green transition-colors text-sm">
+                    Kelola Artikel
+                </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg card-hover animate-on-scroll">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-red-100 p-3 rounded-lg mr-4"><svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></div>
-                        <div>
-                            <h3 class="font-semibold text-forest-green">📄 Pengajian</h3>
-                            <p class="text-sm text-gray-500">15 Januari 2025</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-4">Laporan lengkap kegiatan pengajian yang dihadiri ratusan jamaah.</p>
-                    <a href="#" class="text-ocean-blue hover:text-blue-700 font-semibold text-sm flex items-center">
-                        Lihat PDF <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg card-hover animate-on-scroll" style="transition-delay: 0.3s;">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-lg mr-4"><svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></div>
-                        <div>
-                            <h3 class="font-semibold text-forest-green">📄 Kerja Bakti RW 01</h3>
-                            <p class="text-sm text-gray-500">Setiap Hari Minggu</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-4">Dokumentasi kerja bakti membersihkan selokan dan area umum di RW 01.</p>
-                    <a href="#" class="text-ocean-blue hover:text-blue-700 font-semibold text-sm flex items-center">
-                        Lihat PDF <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg card-hover animate-on-scroll" style="transition-delay: 0.4s;">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 p-3 rounded-lg mr-4"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></div>
-                        <div>
-                            <h3 class="font-semibold text-forest-green">📄 Laporan Kegiatan 2024</h3>
-                            <p class="text-sm text-gray-500">31 Desember 2024</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-4">Rangkuman lengkap seluruh kegiatan dan pencapaian organisasi sepanjang tahun 2024.</p>
-                    <a href="#" class="text-ocean-blue hover:text-blue-700 font-semibold text-sm flex items-center">
-                        Lihat PDF <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
+            <div id="artikelContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Articles will be loaded here by JavaScript -->
             </div>
         </div>
     </section>
+
+    <!-- Members Modal -->
+    <div id="membersModal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-forest-green">Daftar Anggota Taruna Karya</h2>
+                    <button onclick="closeMembersModal()" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse border border-gray-300">
+                        <thead>
+                            <tr class="bg-forest-green text-white">
+                                <th class="border border-gray-300 px-4 py-2 text-left">No</th>
+                                <th class="border border-gray-300 px-4 py-2 text-left">Nama</th>
+                                <th class="border border-gray-300 px-4 py-2 text-left">Alamat</th>
+                                <th class="border border-gray-300 px-4 py-2 text-left">No. HP</th>
+                                <th class="border border-gray-300 px-4 py-2 text-left">Bergabung</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">1</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Rudi Hermawan</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 01/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0812-3456-7890</td>
+                                <td class="border border-gray-300 px-4 py-2">2020</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">2</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Siti Nurhaliza</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 02/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0813-4567-8901</td>
+                                <td class="border border-gray-300 px-4 py-2">2019</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">3</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Bambang Sutrisno</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 03/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0814-5678-9012</td>
+                                <td class="border border-gray-300 px-4 py-2">2021</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">4</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Dewi Sartika</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 01/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0815-6789-0123</td>
+                                <td class="border border-gray-300 px-4 py-2">2020</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">5</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Joko Widodo</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 02/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0816-7890-1234</td>
+                                <td class="border border-gray-300 px-4 py-2">2018</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">6</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Lina Marlina</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 03/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0817-8901-2345</td>
+                                <td class="border border-gray-300 px-4 py-2">2022</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">7</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Agus Salim</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 01/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0818-9012-3456</td>
+                                <td class="border border-gray-300 px-4 py-2">2019</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">8</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Maya Sari</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 02/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0819-0123-4567</td>
+                                <td class="border border-gray-300 px-4 py-2">2021</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">9</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Heri Gunawan</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 03/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0820-1234-5678</td>
+                                <td class="border border-gray-300 px-4 py-2">2020</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">10</td>
+                                <td class="border border-gray-300 px-4 py-2 font-semibold">Rina Susanti</td>
+                                <td class="border border-gray-300 px-4 py-2">RT 01/RW 01</td>
+                                <td class="border border-gray-300 px-4 py-2">0821-2345-6789</td>
+                                <td class="border border-gray-300 px-4 py-2">2022</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-6 text-center text-sm text-gray-600">
+                    <p>Total Anggota: 10 orang</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Detail Modal -->
+    <div id="articleModal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto w-full">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex-1">
+                        <h2 id="modalArticleTitle" class="text-2xl font-bold text-forest-green mb-2"></h2>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span id="modalArticleDate" class="text-gray-600"></span>
+                            <div id="modalArticleCategory"></div>
+                        </div>
+                    </div>
+                    <button onclick="articleDisplay.closeArticleModal()" class="text-gray-500 hover:text-gray-700 ml-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="modalArticleContent" class="prose max-w-none text-gray-700 leading-relaxed">
+                    <!-- Article content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section id="galeri" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -505,6 +548,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="article-display.js"></script>
 
     <script>
         // Mobile menu toggle
@@ -537,7 +581,7 @@
         });
 
         // On-scroll animation observer
-        const observer = new IntersectionObserver((entries, observer) => {
+        window.observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
@@ -546,7 +590,18 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        document.querySelectorAll('.animate-on-scroll').forEach(el => window.observer.observe(el));
+
+        // Members modal functions
+        function openMembersModal() {
+            document.getElementById('membersModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMembersModal() {
+            document.getElementById('membersModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
 
         // Initialize Swiper
         var swiper = new Swiper(".mySwiper", {
