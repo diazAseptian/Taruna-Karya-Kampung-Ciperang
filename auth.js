@@ -27,7 +27,7 @@ class AuthManager {
     // Check authentication and redirect if needed
     checkAuth() {
         if (!this.isAuthenticated()) {
-            window.location.href = './login.html';
+            window.location.href = '/login';
         }
     }
 
@@ -35,7 +35,7 @@ class AuthManager {
     logout() {
         sessionStorage.removeItem('adminLoggedIn');
         sessionStorage.removeItem('loginTime');
-        window.location.href = './login.html';
+        window.location.href = '/login';
     }
 
     // Add logout button to page

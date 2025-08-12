@@ -65,7 +65,7 @@
             </form>
 
             <div class="mt-6 text-center">
-                <a href="./index.html" class="text-ocean-blue hover:text-blue-700 text-sm">
+                <a href="/" class="text-ocean-blue hover:text-blue-700 text-sm">
                     Kembali ke Website
                 </a>
             </div>
@@ -95,7 +95,7 @@
                 sessionStorage.setItem('loginTime', Date.now());
                 
                 // Redirect to admin page
-                window.location.href = './admin.html';
+                window.location.href = '/admin';
             } else {
                 errorMessage.classList.remove('hidden');
                 setTimeout(() => {
