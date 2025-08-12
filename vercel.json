@@ -1,12 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/login",
-      "destination": "/login.html"
-    },
-    {
-      "source": "/admin",
-      "destination": "/admin.html"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
